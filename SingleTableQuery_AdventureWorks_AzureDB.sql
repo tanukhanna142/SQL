@@ -35,7 +35,8 @@ FROM FactInternetSales;
 
 SELECT 
 	SalesOrderNumber AS InvoiceNumber, 
-	OrderDate, SalesAmount, 
+	OrderDate, 
+	SalesAmount, 
 	TaxAmt, 
 	OrderQuantity
 
@@ -46,8 +47,8 @@ FROM FactInternetSales;
 
 SELECT 
 	SalesOrderNumber AS InvoiceNumber,
-    CAST(OrderDate AS DATE) AS OrderDateFormatted,
-    CAST(SalesAmount AS INT) AS SalesAmountRounded
+    	CAST(OrderDate AS DATE) AS OrderDateFormatted,
+    	CAST(SalesAmount AS INT) AS SalesAmountRounded
 	
 FROM FactInternetSales;
 
@@ -116,7 +117,7 @@ ORDER BY InvoiceSubTotal DESC;
 SELECT 
 	SalesOrderNumber AS InvoiceNumber, 
 	OrderDate,
-    SUM(SalesAmount) AS InvoiceSubTotal, 
+    	SUM(SalesAmount) AS InvoiceSubTotal, 
 	SUM(TaxAmt) AS TotalTax, 
 	SUM(OrderQuantity) AS TotalOrderQuantity
 
@@ -147,7 +148,6 @@ FROM DimCustomer;
 -- Retrieve finished goods products
 
 SELECT * 
-
 FROM DimProduct 
 WHERE FinishedGoodsFlag = 1;
 
